@@ -1,11 +1,11 @@
 # job_alert_scraper/notion_api.py
 
 import requests
-import json
+import os
 
-# --- Replace with your actual token and DB ID before use ---
-NOTION_TOKEN = "ntn_Y70276150877CyIGWrUtn2JvOvEb9fdk733q49TCRHX9jD"
-DATABASE_ID = "2471a2e0e56f803f89b4d1c91536efd8"
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
+
 
 HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
