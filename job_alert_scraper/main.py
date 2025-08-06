@@ -5,15 +5,16 @@ import datetime
 def main():
     today = datetime.datetime.utcnow().date()
 
-    # 🔧 Add dummy job
+    # Dummy job to test Notion push
     all_jobs = [
         {
-            "title": "Test Job Posting",
-            "company": "Test Company",
-            "location": "Remote",
-            "url": "https://example.com/job/test",
-            "source": "manual",
-            "posted_at": str(today),
+            "Job Title": "Customer Success Manager (Test)",
+            "Company": "Notion Tester Inc.",
+            "Location": "Remote",
+            "Remote/Hybrid": "Remote",
+            "Platform": "Manual",
+            "Link": "https://example.com/job",
+            "Posted Date": str(today),
         }
     ]
 
