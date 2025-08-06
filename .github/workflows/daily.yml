@@ -1,0 +1,30 @@
+name: Daily Job Alert Scraper
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Runs every day at 9am Barcelona time (UTC+2 = 7am UTC)
+  workflow_dispatch:
+
+jobs:
+  run-job-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run job alert scraper
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          python main.py
