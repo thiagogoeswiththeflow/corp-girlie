@@ -11,10 +11,6 @@ jobs:
   run-job-scraper:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: job_alert_scraper
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,12 +21,10 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r job_alert_scraper/requirements.txt
 
       - name: Run job alert scraper
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: |
-          python main.py
+        run: python job_alert_scraper/main.py
