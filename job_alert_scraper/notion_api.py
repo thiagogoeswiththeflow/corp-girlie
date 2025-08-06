@@ -1,6 +1,7 @@
 # job_alert_scraper/notion_api.py
 
 import requests
+import json
 import os
 
 NOTION_TOKEN = os.getenv("NOTION_TOKEN")
