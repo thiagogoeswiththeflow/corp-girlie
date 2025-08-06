@@ -5,8 +5,17 @@ import datetime
 def main():
     today = datetime.datetime.utcnow().date()
 
-    # TEMP: Empty job list (no scraping logic yet)
-    all_jobs = []
+    # 🔧 Add dummy job
+    all_jobs = [
+        {
+            "title": "Test Job Posting",
+            "company": "Test Company",
+            "location": "Remote",
+            "url": "https://example.com/job/test",
+            "source": "manual",
+            "posted_at": str(today),
+        }
+    ]
 
     filtered_jobs = filter_and_score_jobs(all_jobs)
     push_to_notion(filtered_jobs)
